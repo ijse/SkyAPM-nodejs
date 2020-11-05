@@ -1,5 +1,5 @@
 {
-  "name": "skyapm-nodejs",
+  "name": "@tiger/skyapm-nodejs",
   "version": "2.0.1",
   "description": "The Node server instrument SDK for Apache SkyWalking",
   "main": "index.js",
