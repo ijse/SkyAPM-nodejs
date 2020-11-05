@@ -131,7 +131,9 @@ RemoteClient.prototype.keepAlive = function() {
     instancePingPkg.setService(AgentConfig.getServiceName());
     instancePingPkg.setServiceinstance(AgentConfig.getInstanceName());
 
-    this._managemenet.keepAlive(instancePingPkg, function(err, response) {
+    let meta = new grpc.Metadata();
+    meta.add("Authentication", AgentConfig.getAuthentication());
+    this._managemenet.keepAlive(instancePingPkg, meta, function(err, response) {
         if (err) {
             logger.error("remote-client-service", "Failed to send heart beat of service %s.", AgentConfig.getServiceName());
             that.dealWithError(err);
